@@ -1,11 +1,14 @@
 ---
-title: Turning Up The Heat On HT-PLA's Marketing
-author: Tyler August
+title: "Turning Up The Heat On HT-PLA's Marketing"
+author: "Al Williams"
 date: 2025-06-09
-image: https://via.placeholder.com/800x400
-imageAlt: HT-PLA 3D printing material
-tags: 3D Printing, Materials, Reviews
-excerpt: A deep dive into Polymaker's claims about their new heat-resistant PLA formulation.
+image: "https://via.placeholder.com/800x400"
+imageAlt: "HT-PLA 3D printing material"
+tags:
+  - 3d-printing
+  - materials
+  - reviews
+excerpt: "A deep dive into Polymaker's claims about their new heat-resistant PLA formulation."
 ---
 
 # Turning Up The Heat On HT-PLA's Marketing

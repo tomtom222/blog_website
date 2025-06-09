@@ -3,78 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Tech Blog</title>
+    <title>Turning Up The Heat On HT-PLA's Marketing - Tech Blog</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-        .blog-post {
-            background-color: #2a2a2a;
-            border: 1px solid #3a3a3a;
-            border-radius: 8px;
-        }
-        .blog-meta {
-            color: #888;
-            font-size: 0.9rem;
-        }
-        .navbar {
-            background-color: #2a2a2a;
-            border-bottom: 1px solid #3a3a3a;
-        }
-        /* Markdown content styles */
-        .markdown-content {
-            line-height: 1.6;
-        }
-        .markdown-content h1,
-        .markdown-content h2,
-        .markdown-content h3,
-        .markdown-content h4,
-        .markdown-content h5,
-        .markdown-content h6 {
-            margin-top: 1.5em;
-            margin-bottom: 0.75em;
-        }
-        .markdown-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 1em 0;
-        }
-        .markdown-content pre {
-            background-color: #333;
-            padding: 1em;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-        .markdown-content code {
-            background-color: #333;
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-        }
-        .markdown-content blockquote {
-            border-left: 4px solid #3a3a3a;
-            margin: 1em 0;
-            padding-left: 1em;
-            color: #888;
-        }
-        .tag-link {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            margin: 0.25rem;
-            background-color: #333;
-            border-radius: 4px;
-            color: #e0e0e0;
-            text-decoration: none;
-        }
-        .tag-link:hover {
-            background-color: #444;
-            color: #fff;
-        }
-    </style>
+    <link href="../static/css/style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -105,25 +38,48 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <article class="blog-post p-4 mb-4">
-                    {% if image %}
-                    <img src="{{ image }}" alt="{{ image_alt|default('') }}" class="img-fluid mb-3">
-                    {% endif %}
                     
-                    <h1>{{ title }}</h1>
+                    <img src="https://via.placeholder.com/800x400" alt="" class="img-fluid mb-3">
+                    
+                    
+                    <h1>Turning Up The Heat On HT-PLA's Marketing</h1>
                     <div class="blog-meta mb-4">
-                        {{ date.strftime('%B %d, %Y') }}
-                        {% if tags %}
+                        June 09, 2025
+                        
                         <br>
                         <span class="mt-2">
-                            {% for tag in tags %}
-                            <a href="../tags.html#{{ tag }}" class="tag-link">{{ tag }}</a>
-                            {% endfor %}
+                            
+                            <a href="../tags.html#3d-printing" class="tag-link">3d-printing</a>
+                            
+                            <a href="../tags.html#materials" class="tag-link">materials</a>
+                            
+                            <a href="../tags.html#reviews" class="tag-link">reviews</a>
+                            
                         </span>
-                        {% endif %}
+                        
                     </div>
                     
                     <div class="markdown-content">
-                        {{ content }}
+                        <h1>Turning Up The Heat On HT-PLA's Marketing</h1>
+
+<p>PLA is probably the most-printed filament on the market these days, and is there any wonder? It's cheap, it's easy, and it doesn't poison you (as quickly as its competitors, anyway). What it doesn't do very well is take the heat.</p>
+
+<h2>Polymaker's Claims</h2>
+
+<p>Polymaker's new HT-PLA formulation promises to solve that, and [My Tech Fun] put those claims to the test in a recent video. Polymaker claims its HT-PLA is heat-stable up-to 150 C, but still prints as easily as standard PLA at up to 300 mm/s.</p>
+
+<h2>Heat Stability Explained</h2>
+
+<p>By "heat stable" they mean able to maintain dimensions and form at that temperature when not under any load, save perhaps its own weight. If you need high-temp mechanical properties, they also offer a glass-fiber infused HT-PLA-GF that they claim is heat resistant up to 110 C (that is, able to withstand load at that temperature) which is hard to sneeze at, considering you could print it on a stock Ender so long as you tossed a hardened nozzle on it.</p>
+
+<h2>The Trade-offs</h2>
+
+<p>Now it's not a free lunch: to get the very best results, you do need to anneal the parts, which can introduce shrinkage and warping in HT-PLA, but that's where HT-PLA-GF shines.</p>
+
+<h2>The Verdict</h2>
+
+<p>If you like printing PLA and want to shove something in a hot car, you might want to try HT-PLA. Otherwise, it's just like PLA. It prints like PLA, it looks like PLA, and when cold it behaves mechanically like PLA, which we suppose was rather what Polymaker was going for.</p>
+
                     </div>
                 </article>
             </div>

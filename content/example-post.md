@@ -1,7 +1,9 @@
 ---
 title: Example Blog Post
-date: 2024-06-09
+date: 2025-06-01
 tags: [example, markdown]
+image: "../static/images/markdown-example.svg"
+imageAlt: "Example markdown syntax highlighting"
 ---
 
 # Example Blog Post
@@ -29,7 +31,7 @@ def hello_world():
 
 You can add [links](https://example.com) and images:
 
-![Alt text](https://example.com/image.jpg)
+![Markdown syntax example](/static/images/markdown-example.svg)
 
 ## Tables
 

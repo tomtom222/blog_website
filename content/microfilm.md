@@ -1,11 +1,14 @@
 ---
-title: Information Density: Microfilm And Microfiche
-author: Al Williams
+title: "Information Density: Microfilm And Microfiche"
+author: "Al Williams"
 date: 2025-06-09
-image: https://via.placeholder.com/800x400
-imageAlt: Microfilm and microfiche equipment
-tags: Retro Tech, Storage, History
-excerpt: Before the cloud, there was film. A look back at how businesses stored massive amounts of documents using microfilm and microfiche.
+image: "https://via.placeholder.com/800x400"
+imageAlt: "Microfilm and microfiche equipment"
+tags:
+  - retro-tech
+  - storage
+  - history
+excerpt: "Before the cloud, there was film. A look back at how businesses stored massive amounts of documents using microfilm and microfiche."
 ---
 
 # Information Density: Microfilm And Microfiche
