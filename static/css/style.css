@@ -11,11 +11,33 @@ body {
     padding: 1.5rem; 
 }
 
-.blog-post img { 
-    border-radius: 8px 8px 0 0; 
-    max-width: 100%; 
-    height: auto; 
-    margin-bottom: 1rem; 
+.blog-post img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    width: auto;
+    margin: 0 auto 1rem;
+    display: block;
+    border-radius: 6px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Container to maintain consistent spacing */
+.blog-post .img-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* For modern browsers - maintain aspect ratio */
+@supports (aspect-ratio: 16/9) {
+    .blog-post img {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
 }
 
 .blog-meta { 
@@ -140,11 +162,194 @@ body {
     color: #888;
 }
 
-/* Tag page styles */
-.tag-section {
+/* Timeline styles */
+.timeline {
+    position: relative;
+    padding-left: 0;
+}
+
+.timeline-month {
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.timeline-month-header {
+    padding: 0.5rem 1rem;
+    background-color: #375a7f;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.timeline-month-header:hover {
+    background-color: #446e9b;
+}
+
+.timeline-month-count {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.timeline-month-posts {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
     background-color: #2a2a2a;
-    border: 1px solid #3a3a3a;
+}
+
+.timeline-month.expanded .timeline-month-posts {
+    max-height: 500px;
+}
+
+.timeline-post {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.timeline-post:last-child {
+    border-bottom: none;
+}
+
+.timeline-post a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.timeline-post a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Tags Section Styles */
+.tag-group {
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.tag-header {
+    padding: 0.5rem;
+    background-color: #375a7f;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.tag-header:hover {
+    background-color: #446e9b;
+}
+
+.tag-count {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.tag-posts {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #2a2a2a;
+}
+
+.tag-group.expanded .tag-posts {
+    max-height: 1000px;
+}
+
+.tag-post-date {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+/* Additional Tag Styles */
+.view-all-tags {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.view-all-tags a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.view-all-tags a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+.all-tags-container.hidden {
+    display: none;
+}
+
+.tag-group {
+    margin-bottom: 0.5rem;
+}
+
+.about-list {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+    list-style-type: none;
+}
+
+.about-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #375a7f;
+}
+
+.post-image {
+    max-height: 350px;
+    width: auto;
     border-radius: 8px;
-    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+@media (min-width: 992px) {
+    .post-image {
+        border-radius: 4px;
+    }
+}
+
+/* Natural aspect ratio breakout images */
+.natural-image {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 2rem;
     margin-bottom: 2rem;
-} 
+    text-align: center;
+}
+
+.natural-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1200px) {
+    .natural-image img {
+        max-width: 1200px;
+    }
+}
+

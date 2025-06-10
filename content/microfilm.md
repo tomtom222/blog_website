@@ -2,8 +2,8 @@
 title: "Information Density: Microfilm And Microfiche"
 author: "Al Williams"
 date: 2025-06-09
-image: "https://via.placeholder.com/800x400"
-imageAlt: "Microfilm and microfiche equipment"
+image: "static/images/cemetery-2698731_640.jpg"
+image_alt: "Historical stone archive resembling data storage"
 tags:
   - retro-tech
   - storage

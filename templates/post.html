@@ -39,7 +39,9 @@
             <div class="col-lg-8 mx-auto">
                 <article class="blog-post p-4 mb-4">
                     {% if image %}
-                    <img src="{{ image }}" alt="{{ image_alt|default('') }}" class="img-fluid mb-3">
+                    <figure class="natural-image">
+                        <img src="../{{ image }}" alt="{{ image_alt|default('') }}" loading="lazy">
+                    </figure>
                     {% endif %}
                     
                     <h1>{{ title }}</h1>

@@ -57,8 +57,10 @@ def process_post(file_path):
         metadata['tags'] = []
         
     # Fix image paths in metadata to be relative to posts directory
-    if 'image' in metadata and not metadata['image'].startswith(('http://', 'https://', '/')):
-        metadata['image'] = f"../{metadata['image']}"
+    if 'image' in metadata and not metadata['image'].startswith(('http://', 'https://')):
+        metadata['image'] = metadata['image'].lstrip('/')  # Remove leading slashes
+        if not metadata['image'].startswith('static/'):
+            metadata['image'] = f"static/images/{metadata['image']}"
     
     # Generate preview
     preview = generate_preview(post.content)
@@ -105,6 +107,13 @@ def build_index(posts, posts_per_page=5):
     # Calculate number of pages needed
     total_pages = (len(sorted_posts) + posts_per_page - 1) // posts_per_page
     
+    # Get all unique tags
+    all_tags = set()
+    for post in posts:
+        if 'tags' in post:  # Check if tags exist for the post
+            all_tags.update(post['tags'])
+    all_tags = sorted(all_tags)
+    
     # Get template
     template = env.get_template('index.html')
     
@@ -116,6 +125,8 @@ def build_index(posts, posts_per_page=5):
         # Render HTML
         output = template.render(
             posts=current_posts,
+            all_posts=sorted_posts,
+            all_tags=all_tags,
             current_page=page_num,
             total_pages=total_pages
         )

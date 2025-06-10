@@ -2,8 +2,8 @@
 title: "Screens of Death: From Diagnostic Aids to Sad Emojis"
 date: 2025-06-05
 author: "Tech Explorer"
-image: "/images/bsod.jpg" 
-imageAlt: "Evolution of Windows blue screens of death"
+image: "static/images/wonder-gecko-256046_640.jpg"
+image_alt: "Frozen moment representing system crashes"
 tags: ["windows", "operating systems", "user interface", "error messages"]
 excerpt: "A journey through the evolution of operating system crash screens, from helpful diagnostic tools to simplified emoji-based messages."
 ---

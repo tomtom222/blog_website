@@ -40,9 +40,9 @@
             <div class="col-lg-8">
                 {% for post in posts %}
                 <article class="blog-post">
-                    {% if post.image %}
-                    <img src="{{ post.image }}" alt="{{ post.image_alt }}" class="img-fluid">
-                    {% endif %}
+                    <div class="img-container">
+                        <img src="{{ post.image }}" alt="{{ post.image_alt }}" class="blog-post-image" loading="lazy" style="max-width: 80%;">
+                    </div>
                     <h2><a href="{{ post.url }}" class="text-decoration-none text-light">{{ post.title }}</a></h2>
                     <div class="blog-meta mb-3">
                         <span>{{ post.date.strftime('%B %d, %Y') }}</span>
@@ -102,12 +102,118 @@
             <div class="col-lg-4">
                 <!-- About -->
                 <div class="sidebar">
-                    <h5 class="mb-3">About</h5>
-                    <p>A tech blog exploring everything from retro technology to cutting-edge innovations. Join us as we dive deep into the world of technology.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-decoration-none text-light">RSS</a>
-                        <a href="#" class="text-decoration-none text-light">GitHub</a>
-                        <a href="#" class="text-decoration-none text-light">Twitter</a>
+                    <h5 class="mb-3">About This Blog</h5>
+                    <p>A digital garden where I explore the intersections of technology, creativity, and everyday life.</p>
+                    <p>You'll find a mix of:</p>
+                    <ul class="about-list">
+                        <li>Technical deep dives</li>
+                        <li>Curious experiments</li>
+                        <li>Travel diaries</li>
+                        <li>And more!</li>
+                    </ul>
+                    <p>Not a guidebook, but a chronicle of the life of a 30 something year old software developer with a wide variety of interests.</p>
+                    <div class="d-flex gap-3 mt-2">
+                        <a href="https://github.com/yourusername" class="text-decoration-none text-light">GitHub</a>
+                        <a href="https://linkedin.com/in/yourhandle" class="text-decoration-none text-light">LinkedIn</a>
+                    </div>
+                </div>
+                <!-- Timeline -->
+                <div class="sidebar mt-4">
+                    <h5 class="mb-3">Timeline</h5>
+                    <div class="timeline">
+                        {% set months = {} %}
+                        {% for post in all_posts %}
+                            {% set month = post.date.strftime('%b %Y') %}
+                            {% if month not in months %}
+                                {% set _ = months.update({month: []}) %}
+                            {% endif %}
+                            {% set _ = months[month].append(post) %}
+                        {% endfor %}
+                        
+                        {% for month, month_posts in months|dictsort(reverse=true) %}
+                        <div class="timeline-month">
+                            <div class="timeline-month-header" onclick="this.parentNode.classList.toggle('expanded')">
+                                {{ month }}
+                                <span class="timeline-month-count">({{ month_posts|length }})</span>
+                            </div>
+                            <div class="timeline-month-posts">
+                                {% for post in month_posts %}
+                                <div class="timeline-post">
+                                    <a href="{{ post.url }}">{{ post.title }}</a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Tags -->
+                <div class="sidebar mt-4">
+                    <h5 class="mb-3">Popular Tags</h5>
+                    <div class="tags-container">
+                        {% set tags_dict = {} %}
+                        {% for post in all_posts %}
+                            {% for tag in post.tags %}
+                                {% if tag not in tags_dict %}
+                                    {% set _ = tags_dict.update({tag: []}) %}
+                                {% endif %}
+                                {% set _ = tags_dict[tag].append(post) %}
+                            {% endfor %}
+                        {% endfor %}
+                        
+                        {# Create and sort tags by post count #}
+                        {% set tags_list = [] %}
+                        {% for tag, posts in tags_dict.items() %}
+                            {% set _ = tags_list.append({'tag': tag, 'posts': posts, 'count': posts|length}) %}
+                        {% endfor %}
+                        
+                        {# Sort by count and get top 5 #}
+                        {% set top_tags = tags_list|sort(attribute='count', reverse=true) %}
+                        {% set top_tags = top_tags[:5] if top_tags|length > 5 else top_tags %}
+                        
+                        {% for tag_data in top_tags %}
+                        <div class="tag-group">
+                            <div class="tag-header" onclick="this.parentNode.classList.toggle('expanded')">
+                                {{ tag_data.tag }} <span class="tag-count">({{ tag_data.count }})</span>
+                            </div>
+                            <div class="tag-posts">
+                                {% for post in tag_data.posts|sort(attribute='date', reverse=true) %}
+                                <div class="tag-post">
+                                    <a href="{{ post.url }}">{{ post.title }}</a>
+                                    <span class="tag-post-date">{{ post.date.strftime('%b %d, %Y') }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        {# View All section #}
+                        {% if tags_list|length > 5 %}
+                        <div class="view-all-tags">
+                            <a href="#" onclick="document.querySelector('.all-tags-container').classList.toggle('hidden'); this.textContent = this.textContent.includes('All') ? 'Show Less' : 'View All Tags'; return false;">
+                                View All Tags ({{ tags_list|length - 5 }} more)
+                            </a>
+                            <div class="all-tags-container hidden">
+                                {% for tag_data in tags_list|sort(attribute='count', reverse=true) %}
+                                    {% if tag_data not in top_tags %}
+                                    <div class="tag-group">
+                                        <div class="tag-header" onclick="this.parentNode.classList.toggle('expanded')">
+                                            {{ tag_data.tag }} <span class="tag-count">({{ tag_data.count }})</span>
+                                        </div>
+                                        <div class="tag-posts">
+                                            {% for post in tag_data.posts|sort(attribute='date', reverse=true) %}
+                                            <div class="tag-post">
+                                                <a href="{{ post.url }}">{{ post.title }}</a>
+                                                <span class="tag-post-date">{{ post.date.strftime('%b %d, %Y') }}</span>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -123,5 +229,20 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Close other tag groups when opening a new one
+        document.querySelectorAll('.tag-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const currentGroup = this.parentNode;
+                if (!currentGroup.classList.contains('expanded')) {
+                    document.querySelectorAll('.tag-group.expanded').forEach(group => {
+                        if (group !== currentGroup) group.classList.remove('expanded');
+                    });
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html> 

@@ -2,8 +2,8 @@
 title: "High-Stakes Fox Hunting: The FCC's WWII Radio Intelligence Division"
 date: 2025-06-04
 author: "Radio Enthusiast"
-image: "/images/radio-direction-finding.jpg"
-imageAlt: "Vintage radio direction finding equipment"
+image: "static/images/beach-975225_640.jpg"
+image_alt: "Open landscape representing radio wave propagation"
 tags: ["radio", "history", "WWII", "espionage", "technology"]
 excerpt: "How amateur radio operators and direction-finding techniques helped protect America during World War II through the FCC's Radio Intelligence Division."
 ---

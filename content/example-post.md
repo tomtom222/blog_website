@@ -1,9 +1,9 @@
 ---
-title: Example Blog Post
-date: 2025-06-01
+title: "Example Blog Post"
+date: 2024-06-01
 tags: [example, markdown]
-image: "../static/images/markdown-example.svg"
-imageAlt: "Example markdown syntax highlighting"
+image: "static/images/wonder-gecko-256046_640.jpg"
+image_alt: "Colorful gecko representing diverse content"
 ---
 
 # Example Blog Post

@@ -1,9 +1,9 @@
 ---
 title: "The Hidden Danger of Dust Clouds"
-date: 2025-06-02
+date: 2025-04-02
 author: "Safety First"
-image: "/images/dust-explosion.jpg"
-imageAlt: "Dust explosion demonstration in a controlled environment"
+image: "static/images/coins-1015125_640.jpg"
+image_alt: "Close-up of metal particles resembling industrial dust"
 tags: ["safety", "engineering", "chemistry", "industrial"]
 excerpt: "Understanding the explosive potential lurking in seemingly harmless dust clouds, from flour mills to coffee processing plants."
 ---

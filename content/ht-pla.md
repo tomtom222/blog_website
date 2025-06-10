@@ -2,8 +2,8 @@
 title: "Turning Up The Heat On HT-PLA's Marketing"
 author: "Al Williams"
 date: 2025-06-09
-image: "https://via.placeholder.com/800x400"
-imageAlt: "HT-PLA 3D printing material"
+image: "static/images/wind-chimes-1147912_640.jpg"
+imageAlt: "Precision-crafted objects hanging in balance"
 tags:
   - 3d-printing
   - materials
